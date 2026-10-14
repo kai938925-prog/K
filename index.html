@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Кентау — цифрлық шежіре</title>
+
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #eef3f1;
+
+    color: #222;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+
+    background: #155b8a;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px 15px;
+
+}
+
+
+header h1 {
+
+    margin: 0;
+
+    font-size: 32px;
+
+}
+
+
+header p {
+
+    margin: 8px 0 0;
+
+    font-size: 17px;
+
+}
+
+
+
+   <img src="https://yujanka.kz/wp-content/uploads/2025/07/kentau-1.jpg">
+
+
+.map-wrapper {
+
+    width: 96%;
+
+    max-width: 1200px;
+
+    margin: 30px auto;
+
+}
+
+
+.map {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 6px 25px rgba(0,0,0,0.22);
+
+}
+
+
+/* КЕНТАУ КАРТАСЫ */
+
+.map img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+}
+
+
+/* =========================
+   КВАДРАТ МАРКЕР
+========================= */
+
+.marker {
+
+    position: absolute;
+
+    transform: translate(-50%, -50%);
+
+    text-decoration: none;
+
+    z-index: 10;
+
+    text-align: center;
+
+}
+
+
+/* Көк квадрат */
+
+.pin {
+
+    width: 25px;
+
+    height: 25px;
+
+    background: #1677b7;
+
+    border: 3px solid white;
+
+    border-radius: 5px;
+
+    margin: auto;
+
+    box-shadow:
+        0 0 0 3px #1677b7,
+        0 3px 8px rgba(0,0,0,0.45);
+
+    transition: 0.2s;
+
+}
+
+
+/* Атауы */
+
+.label {
+
+    display: block;
+
+    margin-top: 8px;
+
+    padding: 6px 9px;
+
+    background: white;
+
+    color: #222;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 2px 7px rgba(0,0,0,0.3);
+
+}
+
+
+/* Hover */
+
+.marker:hover {
+
+    z-index: 20;
+
+}
+
+
+.marker:hover .pin {
+
+    background: #0b4f7a;
+
+    transform: scale(1.2);
+
+}
+
+
+.marker:hover .label {
+
+    background: #155b8a;
+
+    color: white;
+
+}
+
+
+/* =========================
+   МАРКЕРЛЕР
+   ОРЫНДАРЫН КЕЙІН ӨЗГЕРТЕСІҢДЕР
+========================= */
+
+
+/* 1 */
+
+.museum {
+
+    left: 27%;
+
+    top: 35%;
+
+}
+
+
+/* 2 */
+
+.shamshi {
+
+    left: 43%;
+
+    top: 28%;
+
+
+}
+
+
+/* 3 */
+
+.azaly {
+
+    left: 73%;
+
+    top: 39%;
+
+}
+
+
+/* 4 */
+
+.gornyak {
+
+    left: 31%;
+
+    top: 53%;
+
+}
+
+
+/* 5 */
+
+.mosque {
+
+    left: 49%;
+
+    top: 51%;
+
+}
+
+
+/* 6 */
+
+.factory {
+
+    left: 69%;
+
+    top: 56%;
+
+}
+
+
+/* 7 */
+
+.karatau {
+
+    left: 18%;
+
+    top: 77%;
+
+}
+
+
+/* 8 */
+
+.karatau-taji {
+
+    left: 47%;
+
+    top: 80%;
+
+}
+
+
+/* 9 */
+
+.kokentau {
+
+    left: 78%;
+
+    top: 76%;
+
+}
+
+
+/* =========================
+   ТӨМЕНГІ АҚПАРАТ
+========================= */
+
+.description {
+
+    width: 90%;
+
+    max-width: 950px;
+
+    margin: 30px auto;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,0.12);
+
+}
+
+
+.description h2 {
+
+    color: #155b8a;
+
+}
+
+
+.description p {
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    background: #10466a;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+
+}
+
+
+/* =========================
+   ТЕЛЕФОН
+========================= */
+
+@media(max-width:700px) {
+
+    header h1 {
+
+        font-size: 23px;
+
+    }
+
+
+    .label {
+
+        font-size: 9px;
+
+        padding: 4px 6px;
+
+    }
+
+
+    .pin {
+
+        width: 18px;
+
+        height: 18px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>
+        Кентау қаласының цифрлық шежіресі
+    </h1>
+
+    <p>
+        Тарихи, мәдени және табиғи орындар
+    </p>
+
+</header>
+
+
+<div class="map-wrapper">
+
+
+    <div class="map">
+
+
+        <!--
+        КЕНТАУ КАРТАСЫ
+
+        yujanka.kz сайтындағы Кентау
+        бас жоспары негізінде карта суретін
+        kentau-map.jpg деп сақтаңдар.
+        -->
+
+        <img
+            src="https://yujanka.kz/wp-content/uploads/2025/07/kentau-1.jpg"
+            alt="Кентау қаласының картасы"
+        >
+
+
+        <!-- =====================
+             1. МУЗЕЙ
+        ====================== -->
+
+        <a
+            href="museum.html"
+            class="marker museum"
+        >
+
+            <div class="pin"></div>
+
+            <span class="label">
+                1. Тарихи-өлкетану музейі
+            </span>
+
+        </a>
+
+
+        <!-- =====================
+             2. ШӘМШІ
+        ====================== -->
+
+        <a
+            href="shamshi.html"
+            class="marker shamshi"
+        >
+
+            <div class="pin"></div>
+
+            <span class="label">
+                2. Шәмші Қалдаяқов атындағы мәдениет үйі
+            </span>
+
+        </a>
+
+        
+
+        <!-- =====================
+             3. АЗАЛЫ АНА
+        ====================== -->
+
+        <a
+            href="azaly-ana.html"
+            class="marker azaly"
+        >
+
+            <div class="pin"></div>
+
+            <span class="label">
+                3. Азалы ана монументі
+            </span>
+
+        </a>
+
+
+        <!-- =====================
+             4. ГОРНЯКТАР
+        ====================== -->
+
+        <a
+            href="gornyak.html"
+            class="marker gornyak"
+        >
+
+            <div class="pin"></div>
+
+            <span class="label">
+                4. Горняктар саябағы және Орталық стадион
+            </span>
+
+        </a>
+
+
+        <!-- =====================
+             5. МЕШІТ
+        ====================== -->
+
+        <a
+            href="mosque.html"
+            class="marker mosque"
+        >
+
+            <div class="pin"></div>
+
+            <span class="label">
+                5. Орталық Кентау мешіті
+            </span>
+
+        </a>
+
+
+        <!-- =====================
+             6. ЗАУЫТ
+        ====================== -->
+
+        <a
+            href="factory.html"
+            class="marker factory"
+        >
+
+            <div class="pin"></div>
+
+            <span class="label">
+                6. Трансформатор зауытының тарихи музейі
+            </span>
+
+        </a>
+
+
+        <!-- =====================
+             7. ҚАРАТАУ ҚОРЫҒЫ
+        ====================== -->
+
+        <a
+            href="karatau.html"
+            class="marker karatau"
+        >
+
+            <div class="pin"></div>
+
+            <span class="label">
+                7. Қаратау мемлекеттік табиғи қорығы
+            </span>
+
+        </a>
+
+
+        <!-- =====================
+             8. ҚАРАТАУ ТӘЖІ
+        ====================== -->
+
+        <a
+            href="karatau-taji.html"
+            class="marker karatau-taji"
+        >
+
+            <div class="pin"></div>
+
+            <span class="label">
+                8. «Қаратау тәжі» стеласы мен асуы
+            </span>
+
+        </a>
+
+
+        <!-- =====================
+             9. КӨКЕНТАУ
+        ====================== -->
+
+        <a
+            href="kokentau.html"
+            class="marker kokentau"
+        >
+
+            <div class="pin"></div>
+
+            <span class="label">
+                9. Көкентау ескерткіштері мен петроглифтері
+            </span>
+
+        </a>
+
+
+    </div>
+
+</div>
+
+
+<div class="description">
+
+    <h2>
+        Кентау қаласының тарихи орындары
+    </h2>
+
+    <p>
+        Картадағы көк белгілерді басып,
+        Кентау қаласының маңызды тарихи,
+        мәдени және табиғи орындары туралы
+        ақпаратпен танысыңыз.
+    </p>
+
+</div>
+
+
+<footer>
+
+    «Өлкемнің цифрлық шежіресі» — Кентау қаласы
+
+</footer>
+
+
+</body>
+
+</html>
